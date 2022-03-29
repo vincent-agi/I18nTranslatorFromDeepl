@@ -1,0 +1,24 @@
+{
+    "MENU": {
+        "HOME": "Home",
+        "ABOUTUS": "About Us",
+        "SETTINGS": "Settings",
+        "DOWNLOAD": "Download"
+    },
+    "HOME": {
+        "SENTENCE1": "Hello it's me ! i'am a greatest developer",
+        "KEY1": "My favorites programming languages are C#, TypeScript",
+        "FRAMEWORK": "Symfony, NodeJS, Angular, Laravel and .NET6",
+        "ME":{
+            "NAME": "My name is radj",
+            "OLD": "25 Years old",
+            "COUNTRY": "France",
+            "LANGUAGESWRITTEN":"English, French, Spanish"
+        }
+    },
+    "ABOUTUS":"It's a very small description to my personnal page",
+    "SETTINGS":{
+        "SOURCELANGUAGE":"Set your language source",
+        "TARGETLANGUAGES": "Set your target Languages to translate you Json File"
+    }
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+
+  <div class="frame">
+
+    <center>
+      <h2 id="title" style="font-size: auto;">Hello</h2>
+    </center>
+
+    <br>
+    <div class="center">
+      <div class="title">
+        <h1>Drop file to upload</h1>
+      </div>
+
+      <div class="dropzone">
+        <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+        <input id="file-button" type="file" class="upload-input" />
+      </div>
+
+      <center><p id="filename-text"></p></center>
+
+      <button type="button" class="btn" name="uploadbutton">Upload file</button>
+
+    </div>
+  </div>
+
+  <a href="index.html"><button class="open-button"><i style="font-size: 15px;" class="fa fa-home"></i></button></a>
+  <button style="margin-bottom: 70px;" class="open-button" id="info-button"> <a style="text-decoration: none;"
+      href="about.html"> <i style="font-size: 15px;" class="fa fa-info"></i> </a></button>
+  <button style="margin-bottom: 140px;" class="open-button"> <a href="settings.html"> <i style="font-size: 15px;"
+        class="fa fa-gear fa-spin"></i> </a></button>
+
+
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <h1>Chat</h1>
+
+      <label for="msg"><b>Message</b></label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+		https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+
+  <!--Firebase Coding-->
+
+  <script>
+
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCvkRNaXsCoDDoZ8jfJAvV1Wofqn-B7b6U",
+      authDomain: "job-board-database.firebaseapp.com",
+      projectId: "job-board-database",
+      storageBucket: "job-board-database.appspot.com",
+      messagingSenderId: "97894020421",
+      appId: "1:97894020421:web:bf82170b67900b2104fa2c",
+      measurementId: "G-XLNNESECJ3"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+
+    const database = firebase.database();
+
+    const fileButton = document.getElementById("file-button");
+
+
+    fileButton.addEventListener("change", (e) => {
+      var file = e.target.files[0];
+
+      var storageRef = firebase.storage().ref("json_files_input/" + file.name);
+      storageRef.put(file).then(() => {
+        var filenameText = document.getElementById("filename-text");
+        
+        filenameText.innerText = file.name;
+
+
+        window.location.href = `result.html?file=${file.name}`;
+
+      });
+
+    });
+
+
+  </script>
+
+  <script>
+
+
+    function ekUpload() {
+      function Init() {
+
+        console.log("Upload Initialised");
+
+        var fileSelect = document.getElementById('file-upload'),
+          fileDrag = document.getElementById('file-drag'),
+          submitButton = document.getElementById('submit-button');
+
+        fileSelect.addEventListener('change', fileSelectHandler, false);
+
+        // Is XHR2 available?
+        var xhr = new XMLHttpRequest();
+        if (xhr.upload) {
+          // File Drop
+          fileDrag.addEventListener('dragover', fileDragHover, false);
+          fileDrag.addEventListener('dragleave', fileDragHover, false);
+          fileDrag.addEventListener('drop', fileSelectHandler, false);
+        }
+      }
+
+      function fileDragHover(e) {
+        var fileDrag = document.getElementById('file-drag');
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        fileDrag.className = (e.type === 'dragover' ? 'hover' : 'modal-body file-upload');
+      }
+
+      function fileSelectHandler(e) {
+        // Fetch FileList object
+        var files = e.target.files || e.dataTransfer.files;
+
+        // Cancel event and hover styling
+        fileDragHover(e);
+
+        // Process all File objects
+        for (var i = 0, f; f = files[i]; i++) {
+          parseFile(f);
+          uploadFile(f);
+        }
+      }
+
+      // Output
+      function output(msg) {
+        // Response
+        var m = document.getElementById('messages');
+        m.innerHTML = msg;
+      }
+
+      function parseFile(file) {
+
+        console.log(file.name);
+        output(
+          '<strong>' + encodeURI(file.name) + '</strong>'
+        );
+
+        // var fileType = file.type;
+        // console.log(fileType);
+        var imageName = file.name;
+
+        var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
+        if (isGood) {
+          document.getElementById('start').classList.add("hidden");
+          document.getElementById('response').classList.remove("hidden");
+          document.getElementById('notimage').classList.add("hidden");
+          // Thumbnail Preview
+          document.getElementById('file-image').classList.remove("hidden");
+          document.getElementById('file-image').src = URL.createObjectURL(file);
+        }
+        else {
+          document.getElementById('file-image').classList.add("hidden");
+          document.getElementById('notimage').classList.remove("hidden");
+          document.getElementById('start').classList.remove("hidden");
+          document.getElementById('response').classList.add("hidden");
+          document.getElementById("file-upload-form").reset();
+        }
+      }
+
+      function setProgressMaxValue(e) {
+        var pBar = document.getElementById('file-progress');
+
+        if (e.lengthComputable) {
+          pBar.max = e.total;
+        }
+      }
+
+      function updateFileProgress(e) {
+        var pBar = document.getElementById('file-progress');
+
+        if (e.lengthComputable) {
+          pBar.value = e.loaded;
+        }
+      }
+
+      function uploadFile(file) {
+
+        var xhr = new XMLHttpRequest(),
+          fileInput = document.getElementById('class-roster-file'),
+          pBar = document.getElementById('file-progress'),
+          fileSizeLimit = 1024; // In MB
+        if (xhr.upload) {
+          // Check if file is less than x MB
+          if (file.size <= fileSizeLimit * 1024 * 1024) {
+            // Progress bar
+            pBar.style.display = 'inline';
+            xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
+            xhr.upload.addEventListener('progress', updateFileProgress, false);
+
+            // File received / failed
+            xhr.onreadystatechange = function (e) {
+              if (xhr.readyState == 4) {
+                // Everything is good!
+
+                // progress.className = (xhr.status == 200 ? "success" : "failure");
+                // document.location.reload(true);
+              }
+            };
+
+            // Start upload
+            xhr.open('POST', document.getElementById('file-upload-form').action, true);
+            xhr.setRequestHeader('X-File-Name', file.name);
+            xhr.setRequestHeader('X-File-Size', file.size);
+            xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+            xhr.send(file);
+          } else {
+            output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
+          }
+        }
+      }
+
+      // Check for the various File API support.
+      if (window.File && window.FileList && window.FileReader) {
+        Init();
+      } else {
+        document.getElementById('file-drag').style.display = 'none';
+      }
+    }
+
+    window.onload = () => {
+      var app = document.getElementById('title');
+
+      var typewriter = new Typewriter(app, {
+        loop: true
+      });
+
+      typewriter.typeString('Welcome to the Translator')
+        .pauseFor(2500)
+        .deleteAll()
+        .typeString('Translate files in <strong>French!</strong>')
+        .pauseFor(2500)
+        .deleteChars(7)
+        .typeString('<strong>Spanish!</strong>')
+        .pauseFor(2500)
+        .deleteChars(8)
+        .typeString('<strong>German!</strong>')
+        .pauseFor(2500)
+        .deleteChars(8)
+        .start();
+    }
+
+    ekUpload();
+
+
+
+  </script>
+</body>
+
+</html>

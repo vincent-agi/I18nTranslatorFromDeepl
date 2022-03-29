@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+
+    <div class="frame">
+
+        <center>
+            <h2 id="title" style="font-size: auto;">Hello</h2>
+        </center>
+
+        <br>
+        <div class="center">
+            <div class="title">
+                <h1>Your result file will be here:</h1>
+            </div>
+
+            <br><br>
+
+            <center id="downloads-container">
+
+            
+            </center>
+            <br>
+
+            <center>
+                <p id="filename-text"></p>
+            </center>
+
+            <button type="button" id="loading-button" class="btn" name="uploadbutton">File Loading...</button>
+
+        </div>
+    </div>
+
+    <a href="index.html"><button class="open-button"><i style="font-size: 15px;" class="fa fa-home"></i></button></a>
+    <a style="text-decoration: none;" href="about.html"></a><button style="margin-bottom: 70px;" class="open-button"
+        id="info-button"> <i style="font-size: 15px;" class="fa fa-info"></i> </button></a>
+    <a href="settings.html"><button style="margin-bottom: 140px;" class="open-button"> <i style="font-size: 15px;"
+                class="fa fa-gear fa-spin"></i> </button></a>
+
+
+    <div class="chat-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
+
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+		https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <script src="deepl.js"></script>
+
+    <!--Firebase Coding-->
+
+
+    <script>
+        window.onload = () => {
+            var app = document.getElementById('title');
+
+            var typewriter = new Typewriter(app, {
+                loop: true
+            });
+
+            typewriter.typeString('Here is your result...')
+                .pauseFor(250000)
+                .start();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

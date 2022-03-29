@@ -1,0 +1,14 @@
+{
+    "name": "Sara",
+    "age": 23,
+    "gender": "Female",
+    "department": "History",
+    "cars": {
+        "car1": "good car",
+        "car2": "bad car",
+        "hondas": {
+            "honda1": "good honda",
+            "honda2": "bad honda"
+        }
+    }
+}

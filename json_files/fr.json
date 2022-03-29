@@ -1,0 +1,24 @@
+{
+    "MENU": {
+        "HOME": "Accueil",
+        "ABOUTUS": "A propos de nous",
+        "SETTINGS": "Paramétres",
+        "DOWNLOAD": "Téléchargement"
+    },
+    "HOME": {
+        "SENTENCE1": "Salut c'est moi je suis un super developpeur",
+        "KEY1": "Mes langages favoris sont c# et TypeScript",
+        "FRAMEWORK": "Symfony, NodeJS, Angular, Laravel et .NET6",
+        "ME":{
+            "NAME": "Mon nom est radj",
+            "OLD": "je suis âgé de 25",
+            "COUNTRY": "France",
+            "LANGUAGESWRITTEN":"Anglais, Français, Espangol"
+        }
+    },
+    "ABOUTUS":"C'est une très petit description pour ma page personnelle",
+    "SETTINGS":{
+        "SOURCELANGUAGE":"Mettre vous langue source",
+        "TARGETLANGUAGES": "Mettre vos langages cibles pour traduire vos fichier Json"
+    }
+}

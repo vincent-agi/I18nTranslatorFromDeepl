@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+
+  <div class="frame">
+    <center>
+      <h2 id="title" style="font-size: auto;">Hello</h2>
+    </center>
+
+    <br>
+    <div class="center">
+      <div class="title">
+        <h1>Set up the settigns</h1>
+      </div>
+
+      <form id="settings-form" style="overflow-y: scroll;">
+
+        <input type="text" name="api-key" placeholder="Api Key" id="api-key" />
+        <br>
+        <br>
+        <!--<input type="text" name="input-lan" placeholder="Input Language" id="input-lan" /> -->
+
+        <label for="cars">Choose Input Language</label>
+
+        <select name="input-lan" id="cars">
+          <option value="BG">Bulgarian</option>
+          <option value="CS">Czech</option>
+          <option value="DA">Danish</option>
+
+          <option name="DE" value="DE">German</option>
+          <option value="EL">Greek</option>
+          <option value="EN-US">English</option>
+
+          <option value="ES">Spanish</option>
+          <option value="ET">Estonian</option>
+          <option value="FI">Finnish</option>
+
+          <option value="FR">French</option>
+          <option value="HU">Hungarian</option>
+          <option value="DA">Italian</option>
+
+          <option value="LT">Lithuanian</option>
+          <option value="LV">Latvian</option>
+          <option value="NL">Dutch</option>
+
+          <option value="PL">Polish</option>
+          <option value="PT-PT">Portuguese</option>
+          <option value="RO">Romanian</option>
+
+          <option value="RU">Russian</option>
+          <option value="SK">Slovak</option>
+          <option value="SL">Slovenian</option>
+
+          <option value="SV">Swedish</option>
+          <option value="ZH">Chinese</option>
+        </select>
+
+        <br>
+        <br>
+        <!-- <input type="text" name="output-lan" placeholder="Output Language" id="output-lan" /> -->
+
+        <fieldset>
+          <legend>Choose Output Languages</legend>
+          <input type="checkbox" name="output-lan" value="BG">Bulgarian<br>
+          <input type="checkbox" name="output-lan" value="CS">Czech<br>
+          <input type="checkbox" name="output-lan" value="DA">Danish<br>
+
+          <input type="checkbox" name="DE" value="DE">German<br>
+          <input type="checkbox" name="output-lan" value="EL">Greek<br>
+          <input type="checkbox" name="output-lan" value="EN-US">English<br>
+
+          <input type="checkbox" name="output-lan" value="ES">Spanish<br>
+          <input type="checkbox" name="output-lan" value="ET">Estonian<br>
+          <input type="checkbox" name="output-lan" value="FI">Finnish<br>
+
+          <input type="checkbox" name="output-lan" value="FR">French<br>
+          <input type="checkbox" name="output-lan" value="HU">Hungarian<br>
+          <input type="checkbox" name="output-lan" value="DA">Italian<br>
+
+          <input type="checkbox" name="output-lan" value="LT">Lithuanian<br>
+          <input type="checkbox" name="output-lan" value="LV">Latvian<br>
+          <input type="checkbox" name="output-lan" value="NL">Dutch<br>
+
+          <input type="checkbox" name="output-lan" value="PL">Polish<br>
+          <input type="checkbox" name="output-lan" value="PT-PT">Portuguese<br>
+          <input type="checkbox" name="output-lan" value="RO">Romanian<br>
+
+          <input type="checkbox" name="output-lan" value="RU">Russian<br>
+          <input type="checkbox" name="output-lan" value="SK">Slovak<br>
+          <input type="checkbox" name="output-lan" value="SL">Slovenian<br>
+
+          <input type="checkbox" name="output-lan" value="SV">Swedish<br>
+          <input type="checkbox" name="output-lan" value="ZH">Chinese<br>
+
+        </fieldset>
+
+        <br><br>
+
+        <button type="submit" class="btn" name="uploadbutton">Update setting</button>
+      </form>
+    </div>
+  </div>
+
+  <a href="index.html"><button class="open-button"><i style="font-size: 15px;" class="fa fa-home"></i></button></a>
+  <a style="text-decoration: none;" href="about.html"></a><button style="margin-bottom: 70px;" class="open-button"
+    id="info-button"> <i style="font-size: 15px;" class="fa fa-info"></i> </button></a>
+  <a href="settings.html"><button style="margin-bottom: 140px;" class="open-button"> <i style="font-size: 15px;"
+        class="fa fa-gear fa-spin"></i> </button></a>
+
+
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <h1>Chat</h1>
+
+      <label for="msg"><b>Message</b></label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+  <script src="credentials/settings.js"></script>
+
+  <script>
+
+
+    window.onload = () => {
+      var app = document.getElementById('title');
+
+      var typewriter = new Typewriter(app, {
+        loop: true
+      });
+
+      typewriter.typeString('Settings')
+        .pauseFor(2500)
+        .deleteAll()
+        .typeString('Translate files in <strong>French!</strong>')
+        .pauseFor(2500)
+        .deleteChars(7)
+        .typeString('<strong>Spanish!</strong>')
+        .pauseFor(2500)
+        .deleteChars(8)
+        .typeString('<strong>German!</strong>')
+        .pauseFor(2500)
+        .deleteChars(8)
+        .start();
+
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>
