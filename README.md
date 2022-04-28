@@ -32,7 +32,7 @@ The translation starts automatically and provides you with the /!\ JSON files. P
 To download the resulting JSON file(s) click on the blue link that appears in the center of the screen.
 # Contact
 
-I am open to suggestions and pull requests. You can contact me at contact@followupsystem.fr
+I am open to suggestions and mrege requests. You can contact me at contact@followupsystem.fr
 # License
 
 This program is distributed under the GNU v3 license
