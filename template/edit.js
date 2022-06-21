@@ -12,7 +12,7 @@
 
                                     <input type="checkbox" name="output-lan" value="FR">French<br>
                                         <input type="checkbox" name="output-lan" value="HU">Hungarian<br>
-                                            <input type="checkbox" name="output-lan" value="DA">Italian<br>
+                                            <input type="checkbox" name="output-lan" value="IT">Italian<br>
 
                                                 <input type="checkbox" name="output-lan" value="LT">Lithuanian<br>
                                                     <input type="checkbox" name="output-lan" value="LV">Latvian<br>
